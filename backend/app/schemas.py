@@ -21,6 +21,15 @@ class ActionResult(BaseModel):
     entry: dict[str, Any] | None = None
 
 
+class DosingSummary(BaseModel):
+    """加药管理列表卡片：待投加单、今日已投加合计、撤销单数（已撤销不计入用量）。"""
+
+    pending: int = 0
+    cancelled: int = 0
+    today_total: float = 0
+    today: str = ""
+
+
 class EntryPayload(BaseModel):
     """登记或修改一条业务记录时提交的字段集合。"""
 
